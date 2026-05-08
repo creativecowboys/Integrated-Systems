@@ -1,0 +1,219 @@
+/* ═══════════════════════════════════════════
+   SERVICE SHOWCASE
+   ═══════════════════════════════════════════ */
+
+.showcase {
+  width: 100%;
+}
+
+/* ── Tab Strip ── */
+.tabStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 4.5rem;
+}
+
+.tab {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.tabActive {
+  background: var(--primary, #00d4ff);
+  border-color: var(--primary, #00d4ff);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.35);
+}
+
+/* ── Main Panel ── */
+.panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 460px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Image Side ── */
+.imageWrap {
+  position: relative;
+  min-height: 340px;
+  /* Stack all image layers */
+  overflow: hidden;
+}
+
+/* Each image layer sits absolutely, crossfades via opacity */
+.imageLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  will-change: opacity;
+}
+
+.imageLayerActive {
+  opacity: 1;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  /* Subtle zoom on the active image */
+  transition: transform 8s ease;
+}
+
+.imageLayerActive .image {
+  transform: scale(1.03);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    transparent 60%,
+    rgba(5, 12, 22, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Content Side ── */
+.content {
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.contentInner {
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  will-change: opacity, transform;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Text visible — faded in, at rest */
+.textIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text hidden — faded out, shifted down slightly */
+.textOut {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary, #00d4ff);
+  font-weight: 600;
+  margin: 0;
+}
+
+.headline {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.desc {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.bullet {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bulletDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary, #00d4ff);
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.6);
+}
+
+.ctaWrap {
+  display: flex;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .panel {
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrap {
+    min-height: 260px;
+  }
+
+  .imageOverlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      rgba(5, 12, 22, 0.7) 100%
+    );
+  }
+
+  .contentInner {
+    padding: 2rem 1.5rem;
+  }
+
+  .headline {
+    font-size: 1.4rem;
+  }
+
+  .tabStrip {
+    gap: 0.35rem;
+  }
+
+  .tab {
+    font-size: 0.73rem;
+    padding: 0.45rem 1rem;
+  }
+}
