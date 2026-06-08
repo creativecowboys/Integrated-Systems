@@ -1,198 +1,124 @@
 .footer {
-  background: var(--bg-void);
-  border-top: 1px solid var(--border-faint);
+  background: var(--navy-900);
+  color: var(--text-inv-2);
   position: relative;
-  overflow: hidden;
-  padding: 5rem 0 3rem;
 }
 
-.glowTop {
-  position: absolute;
-  top: -120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 200px;
-  background: radial-gradient(ellipse, rgba(0, 200, 255, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.footerInner {
+.inner {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: 1.6fr 1fr 1.2fr 0.8fr;
+  gap: 2.5rem;
+  padding-block: 4rem 3rem;
 }
 
-/* Brand */
-.brand {}
-
-.logoRow {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  margin-bottom: 1.25rem;
-  filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.2));
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 1.1rem; }
+.brandText {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.7);
 }
-
-.logoText {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-
-.logoText strong {
-  color: var(--primary);
-  font-weight: 800;
-}
+.brandText strong { color: #fff; font-weight: 800; }
 
 .mission {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  font-style: italic;
-  border-left: 2px solid var(--primary-border);
-  padding-left: 1rem;
-  margin-bottom: 2rem;
-  max-width: 320px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-inv-2);
+  max-width: 34ch;
+  margin-bottom: 1.4rem;
 }
 
-.copyright {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-inv);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.45rem 0.8rem;
+  border-radius: 100px;
 }
-
-/* Columns */
-.col {}
+.badgeDot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,168,232,0.25);
+}
 
 .colTitle {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 1.5rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.1rem;
 }
 
 .address {
   font-style: normal;
-  margin-bottom: 1.25rem;
+  color: var(--text-inv);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
 }
 
-.address p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-}
-
-.contactLine {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.75rem;
-}
-
-.contactLabel {
-  font-size: 0.7rem;
+.contactLines { display: flex; flex-direction: column; gap: 0.5rem; }
+.line { display: flex; gap: 0.6rem; font-size: 0.9rem; }
+.line dt {
   font-family: var(--font-mono);
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  margin-bottom: 0.2rem;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.45);
+  min-width: 46px;
+  padding-top: 0.1rem;
 }
+.line dd a, .line dd { color: var(--text-inv); transition: color 0.2s var(--ease); }
+.line dd a:hover { color: var(--accent); }
 
-.contactVal {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  transition: color 0.2s ease;
-}
-
-.contactVal:hover { color: var(--primary); }
-
-/* Contact Cards */
-.contactCard {
-  padding: 0.85rem 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-faint);
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
-  transition: border-color 0.2s ease;
-}
-
-.contactCard:hover { border-color: var(--primary-border); }
-
-.contactName {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
+.contacts { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+.contact { display: flex; flex-direction: column; }
+.contactName { color: #fff; font-weight: 600; font-size: 0.95rem; }
 .contactRole {
-  font-size: 0.75rem;
-  color: var(--text-muted);
   font-family: var(--font-mono);
-  letter-spacing: 0.05em;
-  margin-bottom: 0.3rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  margin-block: 0.1rem 0.25rem;
 }
+.contactEmail { font-size: 0.86rem; color: var(--accent); transition: color 0.2s var(--ease); }
+.contactEmail:hover { color: #fff; }
 
-.contactEmail {
-  font-size: 0.8rem;
-  color: var(--primary);
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+.navList { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.navLink {
+  font-size: 0.93rem;
+  color: var(--text-inv-2);
+  transition: color 0.2s var(--ease);
 }
+.navLink:hover { color: #fff; }
 
-.contactEmail:hover { opacity: 1; }
-
-/* Nav Links */
-.linkList {
-  list-style: none;
+.bar { border-top: 1px solid rgba(255,255,255,0.1); }
+.barInner {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.footerLink {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  transition: color 0.2s ease;
-  display: inline-flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
 }
+.region { font-family: var(--font-mono); font-size: 0.76rem; }
 
-.footerLink::before {
-  content: '›';
-  color: var(--primary);
-  opacity: 0;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  transform: translateX(-4px);
+@media (max-width: 920px) {
+  .inner { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
+  .brandCol { grid-column: 1 / -1; }
 }
-
-.footerLink:hover {
-  color: var(--text-primary);
-}
-
-.footerLink:hover::before {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-@media (max-width: 1100px) {
-  .footerInner {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .footerInner {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+@media (max-width: 560px) {
+  .inner { grid-template-columns: 1fr; }
+  .barInner { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
 }
